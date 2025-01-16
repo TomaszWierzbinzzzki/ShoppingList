@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShoppingList"
+             xmlns:styles="clr-namespace:ShoppingList.Resources.Styles"
+             x:Class="ShoppingList.Views.MainPage"
+             Title="Lista Zakupów">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:ItemTemplates />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0">
+            <Label Text="Lista zakupów" FontSize="24" HorizontalOptions="Center" />
+            <ListView x:Name="ShoppingListView" 
+                      ItemTemplate="{StaticResource ShoppingItemTemplate}"
+                      ItemsSource="{Binding ShoppingList}">
+            </ListView>
+
+            <Label Text="Produkty w koszyku" FontSize="20" HorizontalOptions="Center" />
+            <ListView x:Name="CartListView" 
+                      ItemTemplate="{StaticResource ShoppingItemTemplate}"
+                      ItemsSource="{Binding CartList}">
+            </ListView>
+        </StackLayout>
+
+        <StackLayout Grid.Column="1">
+            <Label Text="Sklep" FontSize="24" HorizontalOptions="Center" />
+            <ListView x:Name="ProductListView" 
+                      ItemTemplate="{StaticResource ProductItemTemplate}"
+                      ItemsSource="{Binding ProductCategories}">
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

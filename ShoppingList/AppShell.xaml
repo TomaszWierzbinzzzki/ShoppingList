@@ -1,0 +1,10 @@
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="ShoppingList.AppShell"
+       Title="Shopping List">
+    <TabBar>
+        <Tab Title="Lista Zakupów">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
